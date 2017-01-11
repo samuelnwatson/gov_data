@@ -25,16 +25,17 @@ class QueryFDA
     data = parse_json
     organised_results = {}
     data.each_with_index do |obj, i| 
-      organised_results[data[i][:products][0][:name_brand]] = data[i][:reactions]
-    end
-    organised_results
+    organised_results[data[i][:products][0][:name_brand]] = data[i][:reactions]
+  end
+
+  organised_results
   end
 
   def display_results
-  	organise_data.each do |brand, symptoms|
-  		puts "\nBrandname: #{brand}"
-		  puts "Symptoms: #{symptoms}"
-	  end
+    organise_data.each do |brand, symptoms|
+      puts "\nBrandname: #{brand}"
+      puts "Symptoms: #{symptoms}"
+    end
   end
 end
 
