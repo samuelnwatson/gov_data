@@ -9,7 +9,7 @@ require 'open-uri'
 require 'json'
 
 class QueryFDA
-  def fda_query(n=5)
+  def fda_query(n=100)
     url = "https://api.fda.gov/food/event.json?"
     query = "search=products.name_brand+reactions=%22hospitalisation%22&limit=#{n}"
     request = open(url + query)
@@ -25,10 +25,10 @@ class QueryFDA
     data = parse_json
     organised_results = {}
     data.each_with_index do |obj, i| 
-    organised_results[data[i][:products][0][:name_brand]] = data[i][:reactions]
-  end
-
-  organised_results
+      organised_results[data[i][:products][0][:name_brand]] = data[i][:reactions]
+    end
+    
+    organised_results
   end
 
   def display_results
