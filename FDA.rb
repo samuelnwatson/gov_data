@@ -27,7 +27,7 @@ class QueryFDA
     data.each_with_index do |obj, i| 
       organised_results[data[i][:products][0][:name_brand]] = data[i][:reactions]
     end
-    
+
     organised_results
   end
 

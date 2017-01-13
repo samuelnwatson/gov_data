@@ -8,7 +8,7 @@ RSpec.describe "QueryFDA" do
 
   context "accessing url" do
     it "receives a json object from url" do
-      expect(@query.fda_query.to_not eq nil
+      expect(@query.fda_query).to_not eq nil
     end
   end
 
@@ -27,7 +27,7 @@ RSpec.describe "QueryFDA" do
   context "displays data" do
     it "outputs formatted data" do
       output = @query.display_results 
-      expect(output.length).to eq 5
+      expect(output.length).to eq 100
     end
   end    
 end
